@@ -54,7 +54,6 @@ ifdef HAVE_WIN32
 	cd $(UNPACK_DIR) && sed -i.orig -e 's/lua luac/lua.exe luac.exe/' Makefile
 endif
 	cd $(UNPACK_DIR)/src && sed -i.orig \
-		-e 's/CC=/#CC=/' \
 		-e 's/= *strip/=$(STRIP)/' \
 		-e 's/= *ar rcu/= $(AR) rcu/' \
 		-e 's/= *ranlib/= $(RANLIB)/' \
@@ -73,7 +72,7 @@ ifdef HAVE_WIN32
 	cp $</etc/lua.pc "$(PREFIX)/lib/pkgconfig/"
 endif
 ifdef HAVE_CROSS_COMPILE
-	cd $</src && $(MAKE) clean && $(MAKE) liblua.a && ranlib liblua.a && $(MAKE) luac
+	cd $</src && $(MAKE) clean && $(MAKE) liblua.a && $(RANLIB) liblua.a && $(MAKE) luac
 	cp $</src/luac $(PREFIX)/bin
 endif
 	touch $@
