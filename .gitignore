@@ -33,8 +33,10 @@
 /build/ios/
 /build/mac/
 /contrib/android-arm/
+/contrib/android-arm64/
 /contrib/android-armv7/
 /contrib/android-x86/
+/contrib/android-x86_64/
 /contrib/include/
 /contrib/install-android/
 /contrib/install-tvos/
